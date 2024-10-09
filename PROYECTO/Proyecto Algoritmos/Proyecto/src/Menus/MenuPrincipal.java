@@ -24,7 +24,6 @@ public class MenuPrincipal {
 
                 // Opción seleccionada por el usuario
                 opcionMenu = scan.nextInt();
-                // Consumir el salto de línea pendiente
                 scan.nextLine();
 
                 // Verificar si la opción es válida
@@ -32,22 +31,18 @@ public class MenuPrincipal {
                     System.out.println("");
                     System.out.println("Opcion no valida, por favor ingrese una opcion valida.");
                     opcionMenu = scan.nextInt();
-                    scan.nextLine();
+                    scan.nextLine(); 
                 }
 
-                // Procesar la opción válida
+                // Procesar la opción 
                 switch (opcionMenu) {
                     case 1:
                         MenuGestionProductos.main(new String[0]);
                         break;
                     case 2:
-                        System.out.println("");
-                        System.out.println("control existencias");
-                        System.out.println("______________________________");
+                        MenuExistencias.main(new String[0]);
                     case 3:
-                        System.out.println("");
-                        System.out.println("BIENVENIDO A PEDIDOS DE COMPRA");
-                        System.out.println("______________________________");
+                        MenuPedidos.main(new String[0]);
                         break;
                     case 4:
                         System.out.println("");
@@ -59,7 +54,7 @@ public class MenuPrincipal {
             } catch (InputMismatchException e) {
                 System.out.println("Entrada invalida. Por favor, ingrese un numero entero.");
                 System.out.println("");
-                scan.nextLine(); // Limpiar el buffer
+                scan.nextLine();
             }
         }
     }

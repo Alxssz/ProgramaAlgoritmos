@@ -102,7 +102,8 @@ public class AltaProductos {
 
 
     // Guardar el nuevo producto en el archivo
-    public static void guardarProducto(String nombreProducto, String categoria, String descripcion, String caracteristicas, double precio, int stock) {
+    public static void guardarProducto(String nombreProducto, String categoria, String descripcion,
+    String caracteristicas, double precio, int stock) {
         int contador = 1;
 
         try {
