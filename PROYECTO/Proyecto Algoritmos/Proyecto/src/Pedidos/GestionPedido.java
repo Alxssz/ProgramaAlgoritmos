@@ -32,7 +32,7 @@ public class GestionPedido {
             id = scan.nextLine().trim();
             if (id.isEmpty()) {
                 //si esta vacio
-                System.out.println("El codigo del pedido no puede estar vacío.");
+                System.out.println("El codigo del pedido no puede estar vacio.");
             }
             // si el pedido existe
             if (!pedidoExiste(id)) {

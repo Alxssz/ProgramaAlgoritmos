@@ -105,6 +105,7 @@ public class AltaProductos {
     public static void guardarProducto(String nombreProducto, String categoria, String descripcion,
     String caracteristicas, double precio, int stock) {
         int contador = 1;
+        String reorden = "10";
 
         try {
             // Leer el archivo para obtener el último contador
@@ -126,7 +127,8 @@ public class AltaProductos {
 
             // Escribir en el archivo
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivoAltaProducto, true))) {
-                bw.write(contador + "|" + (nombreProducto) + "|" + (categoria) + "|" + (descripcion) + "|" + (caracteristicas) + "|" + (precio) + "|" + (stock) + "\n");
+                
+                bw.write(contador + "|" + (nombreProducto) + "|" + (categoria) + "|" + (descripcion) + "|" + (caracteristicas) + "|" + (precio) + "|" + (stock) + reorden + "\n");
             }
         } catch (IOException e) {
         }

@@ -1,12 +1,12 @@
 package Menus;
 
-import ControlExistencia.AlertaStock;
-import ControlExistencia.EntradaProductos;
-import ControlExistencia.HistorialMovimientos;
-import ControlExistencia.VentaProductos;
+import InformesEstasiticas.Estadisticas;
+import InformesEstasiticas.InformeInventarioActual;
+import InformesEstasiticas.InformeMovimientos;
+import InformesEstasiticas.informePedido;
 import java.util.Scanner;
 
-public class MenuExistencias {
+public class MenuEstadisticas {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -14,13 +14,13 @@ public class MenuExistencias {
 
         // Mostrar el menú de categorías
         System.out.println("");
-        System.out.println("         CONTROL DE EXISTENCIAS       ");
+        System.out.println("             ESTADISTICAS             ");
         System.out.println("______________________________________");
         System.out.println("");
-        System.out.println("1. Entrada Productos");
-        System.out.println("2. Salida Productos");
-        System.out.println("3. Alerta Stock");
-        System.out.println("4. Historial Movimiento");
+        System.out.println("1. Informe Inventario");
+        System.out.println("2. Informe Movimientos");
+        System.out.println("3. Informe Pedidos");
+        System.out.println("4. Estadisticas ");
         System.out.println("5. Salir");
         System.out.println("---------------------------------");
         System.out.println("Ingrese una opcion:");
@@ -39,16 +39,16 @@ public class MenuExistencias {
         // Procesar la opción válida
         switch (opcionG) {
             case 1:
-                EntradaProductos.main(new String[0]);
+                InformeInventarioActual.main(new String[0]);
                 break;
             case 2:
-                VentaProductos.main(new String[0]);
+                InformeMovimientos.main(new String[0]);
                 break;
             case 3:
-                AlertaStock.main(new String[0]);
+                informePedido.main(new String[0]);
                 break;
             case 4:
-                HistorialMovimientos.main(new String[0]);
+                Estadisticas.main(new String[0]);
                 break;
             case 5:
                 System.out.println("Volviendo al menu principal...");

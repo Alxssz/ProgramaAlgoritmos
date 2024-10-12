@@ -83,9 +83,9 @@ public class EntradaProductos {
                 // Si la posición 0 tiene el ID
                 if (datos[0].compareTo(id) == 0) {
                     // escribir la nueva cantidad ingresada
-                    int stockActual = Integer.parseInt(datos[6]) + cantidadIngresada; // Aumentar el stock
+                    int stockActual = Integer.parseInt(datos[5]) + cantidadIngresada; // Aumentar el stock
                     linea = datos[0] + "|" + datos[1] + "|" + datos[2] + "|" + datos[3]
-                            + "|" + datos[4] + "|" + datos[5] + "|" + stockActual;
+                            + "|" + datos[4] + "|" +stockActual+ "|"+ datos[6];
                 }
                 bw.write(linea + "\n");
             }
