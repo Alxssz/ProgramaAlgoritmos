@@ -58,7 +58,7 @@ public class RecepcionPedido {
 
             // ingresar cantidad recibida
             do {
-                System.out.println("Ingrese la cantidad recibida para el producto del pedido " + id);
+                System.out.println("Ingrese la cantidad recibida para el producto del pedido ");
                 cantidadRecibida = scan.nextInt();
                 if (cantidadRecibida < 0) {
                     System.out.println("Ingrese una cantidad positiva.");

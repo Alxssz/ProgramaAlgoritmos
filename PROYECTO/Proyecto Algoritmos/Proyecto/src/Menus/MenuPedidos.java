@@ -13,8 +13,8 @@ public class MenuPedidos {
 
         // Mostrar el menú de categorías
         System.out.println("");
-        System.out.println("  CONTROL DE EXISTENCIAS EXISTENCIAS  ");
-        System.out.println("______________________________________");
+        System.out.println("         PEDIDOS DE COMPRA        ");
+        System.out.println("__________________________________");
         System.out.println("");
         System.out.println("1. Crear Pedido ");
         System.out.println("2. Gestionar Pedido");

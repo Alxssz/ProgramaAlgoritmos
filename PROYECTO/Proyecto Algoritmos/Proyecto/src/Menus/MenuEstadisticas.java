@@ -14,7 +14,7 @@ public class MenuEstadisticas {
 
         // Mostrar el menú de categorías
         System.out.println("");
-        System.out.println("             ESTADISTICAS             ");
+        System.out.println("        INFORMES Y ESTADISTICAS       ");
         System.out.println("______________________________________");
         System.out.println("");
         System.out.println("1. Informe Inventario");
@@ -22,7 +22,7 @@ public class MenuEstadisticas {
         System.out.println("3. Informe Pedidos");
         System.out.println("4. Estadisticas ");
         System.out.println("5. Salir");
-        System.out.println("---------------------------------");
+        System.out.println("-------------------------------------");
         System.out.println("Ingrese una opcion:");
 
         // Opción seleccionada por el usuario

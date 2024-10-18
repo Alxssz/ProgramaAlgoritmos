@@ -70,6 +70,7 @@ public class LOGIN {
     // Método para registrar la fecha y hora de acceso
     public static void registrarAcceso(String usuario) {
         try (FileWriter bw = new FileWriter(archivoUsuarios, true)) {
+            //variables
             LocalDateTime ahora = LocalDateTime.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             String fechaHoraAcceso = ahora.format(formatter);
@@ -83,10 +84,10 @@ public class LOGIN {
     // Método para registrar la fecha y hora de salida
     public static void registrarSalida(String usuario) {
         try (FileWriter bw = new FileWriter(archivoUsuarios, true)) {
+            //variales
             LocalDateTime ahora = LocalDateTime.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             String fechaHoraSalida = ahora.format(formatter);
-
             bw.write(" - Salida: " + fechaHoraSalida + "\n");
         } catch (IOException e) {
             System.out.println("Error al escribir en el archivo de registro.");

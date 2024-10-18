@@ -30,7 +30,7 @@ public class HistorialMovimientos {
 
         // ver si el producto existe
         if (!productoExiste(idProducto)) {
-            System.out.println("El ID (" + idProducto + ") no está registrado.");
+            System.out.println("El ID (" + idProducto + ") no esta registrado.");
             return;
         }
 

@@ -19,7 +19,6 @@ public class AgregarCategoria {
                 System.out.println("El archivo Categorias se ha creado con exito.");
             }
         } catch (IOException excepcion) {
-            excepcion.printStackTrace(System.out);
         }
 
         // Encabezado

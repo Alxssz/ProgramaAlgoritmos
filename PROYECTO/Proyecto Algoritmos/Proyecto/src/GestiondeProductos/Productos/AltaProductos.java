@@ -2,6 +2,7 @@ package GestiondeProductos.Productos;
 
 import static GestiondeProductos.CategoriaProducto.AgregarCategoria.categoriaExiste;
 import static GestiondeProductos.CategoriaProducto.AgregarCategoria.categoriasExistentes;
+import static GestiondeProductos.Productos.ModificarProducto.mostrarProductosExistentes;
 import java.util.Scanner;
 import java.io.*;
 
@@ -36,6 +37,7 @@ public class AltaProductos {
         System.out.println("________________________");
         System.out.println("");
 
+        mostrarProductosExistentes();
         // Validación de nombre del producto
         do {
             System.out.println("- Ingrese el nombre del producto:");

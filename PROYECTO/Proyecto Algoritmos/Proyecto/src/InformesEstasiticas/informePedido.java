@@ -17,9 +17,9 @@ public class informePedido {
         // Pedir al usuario el nombre del proveedor
         System.out.println("Ingrese el nombre del proveedor para generar el informe: ");
         proveedor = scan.nextLine().trim();
-
+        
         // Mostrar el informe en pantalla
-        StringBuilder informe = new StringBuilder(); // Usamos StringBuilder para guardar el informe
+        StringBuilder informe = new StringBuilder(); // para guardar el informe
         mostrarPedido(proveedor, informe);
 
         // Preguntar si desea exportar el informe a CSV
@@ -27,6 +27,8 @@ public class informePedido {
         System.out.println("----------------------------------------------------");
         System.out.println("Desea exportar el informe a un archivo CSV? (SI /NO)");
         String respuesta = scan.nextLine();
+        
+        
         if (respuesta.equalsIgnoreCase("si")) {
             try (PrintWriter pw = new PrintWriter(new FileWriter("informe_pedidos.csv"))) {
                 pw.println("Numero de Pedido,ID Producto,Cantidad,Precio Unitario,Subtotal");

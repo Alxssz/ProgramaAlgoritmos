@@ -33,7 +33,7 @@ public class MenuGestionProductos {
         while (opcionG < 1 || opcionG > 5) {
             System.out.println("Opcion no válida, por favor ingrese una opción valida:");
             opcionG = scan.nextInt();
-            scan.nextLine(); // Consumir el salto de línea pendiente
+            scan.nextLine(); // Consumir 
         }
 
         // Procesar la opción válida

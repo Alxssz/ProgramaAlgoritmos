@@ -1,5 +1,6 @@
 package InformesEstasiticas;
 
+import static GestiondeProductos.CategoriaProducto.AgregarCategoria.categoriasExistentes;
 import Menus.MenuExistencias;
 import java.io.*;
 import java.util.*;
@@ -17,6 +18,7 @@ public class InformeInventarioActual {
             String linea;
 
             // filtre por categoria
+            categoriasExistentes();
             System.out.println("Ingrese la categoria a filtrar (dejar vaco para mostrar todo): ");
             String categoria = scan.nextLine();
 
@@ -36,6 +38,7 @@ public class InformeInventarioActual {
             System.out.println("Error al leer el archivo de productos.");
         }
 
+        
         // Si no hay productos para mostrar, regresar al menú
         if (productos.isEmpty()) {
             System.out.println("No hay productos que coincidan.");
@@ -46,7 +49,7 @@ public class InformeInventarioActual {
         }
 
         // Pedir al usuario el criterio de ordenación
-        System.out.println("Seleccione el criterio de ordenación: 1 - Nombre, 2 - Stock, 3 - Valor Total del Stock");
+        System.out.println("Seleccione el criterio de ordenación");
         System.out.println("1. Nombre");
         System.out.println("2. Stock");
         System.out.println("3. Valor Total del Stock");
@@ -65,7 +68,7 @@ public class InformeInventarioActual {
                 comparador = Comparator.comparingDouble(o -> Double.parseDouble(o[4]) * Integer.parseInt(o[5])); // Ordenar por valor total
                 break;
             default:
-                comparador = Comparator.comparing(o -> o[1]); // Por defecto, ordenar por nombre
+                comparador = Comparator.comparing(o -> o[1]); // ordenar por nombre
         }
 
         productos.sort(comparador);
@@ -83,7 +86,7 @@ public class InformeInventarioActual {
         }
 
         // Preguntar si desea exportar el informe a CSV
-        System.out.println("¿Desea exportar el informe a un archivo CSV? (S/N)");
+        System.out.println("Desea exportar el informe a un archivo CSV? (SI /NO)");
         String respuesta = scan.nextLine();
 
         if (respuesta.equalsIgnoreCase("Si")) {
