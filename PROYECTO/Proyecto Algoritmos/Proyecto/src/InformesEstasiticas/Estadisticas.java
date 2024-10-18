@@ -2,8 +2,6 @@ package InformesEstasiticas;
 
 import java.io.*;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Estadisticas {
 
@@ -49,13 +47,14 @@ public class Estadisticas {
                 movimientosStock();
                 break;
             case 5:
-                System.out.println("Saliendo...");
                 break;
         }
     }
 
     public static void mostrarEstadisticasInventario() {
+        System.out.println("");
         System.out.println("Porcentajes de Productos en el Inventario:");
+        System.out.println("");
 
         int totalCantidad = 0; // Suma total de todas las cantidades
         Map<String, Integer> inventario = new HashMap<>(); // Mapa para almacenar el nombre del producto y su cantidad
@@ -68,11 +67,11 @@ public class Estadisticas {
             while ((linea = br.readLine()) != null) {
                 String[] datos = linea.split("\\|"); // Separar por "|"
 
-                if (datos.length == 7) { // Verificar que hay suficientes datos
-                    String nombreProducto = datos[1]; // Nombre del producto
-                    int cantidad = Integer.parseInt(datos[5]); // Cantidad en inventario
+                if (datos.length >= 7) { // Verificar que hay suficientes datos
+                    String nombreProducto = datos[1].trim(); // Nombre del producto
+                    int cantidad = Integer.parseInt(datos[6].trim()); // Cantidad en inventario
 
-                    // Si el producto ya existe en el mapa, sumar la cantidad; de lo contrario, agregarlo
+                    // Acumular cantidad en el mapa
                     inventario.put(nombreProducto, inventario.getOrDefault(nombreProducto, 0) + cantidad);
 
                     // Acumular la cantidad total
@@ -80,7 +79,16 @@ public class Estadisticas {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Error al leer el archivo de inventario: " + e.getMessage());
+            System.out.println("Error al leer el archivo de inventario");
+            return;
+        } catch (NumberFormatException e) {
+            System.out.println("Error en el formato de los datos del inventario");
+            return;
+        }
+
+        // Verificar si el inventario tiene productos
+        if (totalCantidad == 0) {
+            System.out.println("El inventario está vacío.");
             return;
         }
 
@@ -89,12 +97,20 @@ public class Estadisticas {
             String nombreProducto = entry.getKey();
             int cantidad = entry.getValue();
             double porcentaje = (double) cantidad / totalCantidad * 100; // Calcular el porcentaje
+
             System.out.printf("Producto: %s | Cantidad: %d | Porcentaje: %.2f%%\n", nombreProducto, cantidad, porcentaje);
+
+            //graficas
+            int circulo = (int) (porcentaje / 10);
+            String grafica = "GRAFICA " + "o".repeat(circulo);
+            System.out.println(grafica);
+            System.out.println("");
         }
     }
 
     public static void estadisticasVenta() {
-        System.out.println("Estadísticas de Ventas:");
+        System.out.println("");
+        System.out.println("Estadisticas de Ventas:");
 
         int totalVentas = 0;  // Contador total de ventas
         Map<Integer, Integer> ventasPorProducto = new HashMap<>(); // Almacena las ventas por ID de producto
@@ -121,8 +137,9 @@ public class Estadisticas {
 
             // Mostrar resultados
             if (totalVentas > 0) {
-                System.out.printf("Total de ventas: %d\n", totalVentas);
+                System.out.printf("Total cantidad vendida : %d\n", totalVentas);
                 System.out.println("Porcentaje de ventas por producto:");
+                System.out.println("");
 
                 for (Map.Entry<Integer, Integer> entry : ventasPorProducto.entrySet()) {
                     int idProducto = entry.getKey();
@@ -130,6 +147,12 @@ public class Estadisticas {
                     double porcentaje = (double) cantidadVendida / totalVentas * 100;
 
                     System.out.printf("Producto ID: %d, Cantidad vendida: %d, Porcentaje de ventas: %.2f%%\n", idProducto, cantidadVendida, porcentaje);
+
+                    //graficas
+                    int circulo = (int) porcentaje / 10;
+                    String grafica = "GRAFICA " + "o".repeat(circulo);
+                    System.out.println(grafica);
+                    System.out.println("");
                 }
             }
         } catch (IOException e) {
@@ -172,11 +195,28 @@ public class Estadisticas {
                 double porcentajePendiente = (double) contadorPendiente / totalPedidos * 100;
 
                 // Mostrar los resultados
+                System.out.println("");
                 System.out.printf("Total de Pedidos: %d\n", totalPedidos);
+                System.out.println("");
+
                 System.out.printf("Completado: %.2f%%\n", porcentajeCompletado);
+                int circulo = (int) porcentajeCompletado / 10;
+                String grafica = "GRAFICA " + "o".repeat(circulo);
+                System.out.println(grafica);
+                System.out.println("");
+
                 System.out.printf("En curso: %.2f%%\n", porcentajeCurso);
+                int circuloCurso = (int) porcentajeCurso / 10;
+                String graficaCurso = "GRAFICA " + "o".repeat(circuloCurso);
+                System.out.println(graficaCurso);
+                System.out.println("");
+
                 System.out.printf("Pendiente: %.2f%%\n", porcentajePendiente);
-            }       
+                int circuloPen = (int) porcentajePendiente / 10;
+                String graficaPen = "GRAFICA " + "o".repeat(circuloPen);
+                System.out.println(graficaPen);
+
+            }
         } catch (IOException ex) {
             System.out.println("Error al leer el archivo de movimientos de stock: " + ex.getMessage());
         }
@@ -222,9 +262,18 @@ public class Estadisticas {
 
                 // Mostrar resultados
                 System.out.printf("Total de movimientos: %d\n", totalMovimientos);
-                System.out.printf("Entradas de productos (%.2f%%) \n", porcentajeEntradas);
-                System.out.printf("Salidas de productos(%.2f%%)\n", porcentajeSalidas);
+                System.out.println();
 
+                System.out.printf("Entradas de productos (%.2f%%) \n", porcentajeEntradas);
+                int circuloEn = (int) porcentajeEntradas / 10;
+                String graficaEn = "GRAFICA " + "o".repeat(circuloEn);
+                System.out.println(graficaEn);
+                System.out.println("");
+                
+                System.out.printf("Salidas de productos(%.2f%%)\n", porcentajeSalidas);
+                int circuloPen = (int) porcentajeSalidas / 10;
+                String graficaSal = "GRAFICA " + "o".repeat(circuloPen);
+                System.out.println(graficaSal);
             } else {
                 System.out.println("No hay movimientos registrados.");
             }

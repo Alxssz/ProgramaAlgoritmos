@@ -50,6 +50,7 @@ public class BajaProductos {
             }
             // Eliminar el producto del archivo de texto
             eliminarProducto(id);
+            System.out.println("Se elimino producto.");
             // Regresar al menú
             return;
         }

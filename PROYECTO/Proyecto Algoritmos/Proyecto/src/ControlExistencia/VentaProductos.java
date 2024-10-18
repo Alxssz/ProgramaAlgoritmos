@@ -79,7 +79,7 @@ public class VentaProductos {
                 String[] datos = linea.split("\\|");
                 //si la posicion 0 tiene el ID
                 if (datos[0].compareTo(id) == 0) {
-                    cantidad = Integer.parseInt(datos[5]); // convertir a numero la posición del stock
+                    cantidad = Integer.parseInt(datos[6]); // convertir a numero la posición del stock
                     break;
                 }
             }
@@ -106,11 +106,11 @@ public class VentaProductos {
                 // Si la posición 0 tiene el ID
                 if (datos[0].compareTo(id) == 0) {
                     // Actualizar la línea 
-                    int cantidadActual = Integer.parseInt(datos[5]); //convertir en numero el stock
+                    int cantidadActual = Integer.parseInt(datos[6]); //convertir en numero el stock
                     // Restar la cantidad vendida
                     cantidadActual -= cantidadIngresada; 
                     linea = datos[0] + "|" + datos[1] + "|" + datos[2] + "|" + datos[3]
-                            + "|" + datos[4] + "|" + cantidadActual+ "|" + datos[6]; // Actualiza la línea
+                            + "|" + datos[4] + "|" + datos[5]+ "|"+ cantidadActual+ "|" + datos[7]; // Actualiza la línea
                 }
                 bw.write(linea + "\n"); //salto de linea entre lineas
             }

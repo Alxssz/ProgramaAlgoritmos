@@ -1,0 +1,8 @@
+Talla | Medida del calzado
+Material | Composicion del zapato 
+Color | Color del calzado  
+Tipo de Suela | Suela plana,antideslizante, etc.  
+Cierre | Cordones, sin cordones 
+Estilo | Casual, formal, deportivo  
+Género | Masculino, femenino, unisex  
+Altura | Altura del calzado

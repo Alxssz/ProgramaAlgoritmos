@@ -130,7 +130,7 @@ public class AltaProductos {
             // Escribir en el archivo
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivoAltaProducto, true))) {
                 
-                bw.write(contador + "|" + (nombreProducto) + "|" + (categoria) + "|" + (descripcion) + "|" + (caracteristicas) + "|" + (precio) + "|" + (stock) + reorden + "\n");
+                bw.write(contador + "|" + (nombreProducto) + "|" + (categoria) + "|" + (descripcion) + "|" + (caracteristicas) + "|" + (precio) + "|" + (stock) + "|" + reorden + "\n");
             }
         } catch (IOException e) {
         }

@@ -1,1 +1,8 @@
-
+Marca|Fabricante del zapato|texto
+Modelo|identificacion especifica|texto
+Peso|Peso del zapato|numero
+Material de la Suela| Goma, caucho, cuero, etc.|texto  
+Altura del Tacon|medida altura|numero
+Resistencia al Agua|Contra la humedad|texto
+Durabilidad|Tiempo estimado de vida|fecha
+Nivel de Amortiguacion|Grado de soporte|texto
